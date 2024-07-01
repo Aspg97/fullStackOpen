@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant br as navegador
+    participant sr as servidor
+
+    br->>sr: GET https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate sr
+    sr-->>br: text/html
+    deactivate sr
+    
+    br->>sr: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate sr
+    sr-->>br: text/html
+    deactivate sr
+
+    br->>sr: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate sr
+    sr-->>br: text/css
+    deactivate sr
+
+    br->>sr: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate sr
+    sr-->>br: application/javascript
+    deactivate sr
+
+    br->>sr: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate sr
+    sr-->>br: application/json
+    deactivate sr
+
+    
