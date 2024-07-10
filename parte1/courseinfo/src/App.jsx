@@ -17,9 +17,9 @@ const Parte = (infoP) => {
 const Content = (infoS) => {
   return(
     <div>
-      <Parte parte = {infoS.parte1} ejercicio={infoS.ejercicio1}/>
-      <Parte parte = {infoS.parte2} ejercicio={infoS.ejercicio2}/>
-      <Parte parte = {infoS.parte3} ejercicio={infoS.ejercicio3}/>
+      <Parte parte = {infoS.partes[0].nombre} ejercicio={infoS.partes[0].ejercicios}/>
+      <Parte parte = {infoS.partes[1].nombre} ejercicio={infoS.partes[1].ejercicios}/>
+      <Parte parte = {infoS.partes[2].nombre} ejercicio={infoS.partes[2].ejercicios}/>
     </div>
   );
 }
@@ -27,24 +27,32 @@ const Content = (infoS) => {
 const Total = (elementos) => {
   return(
     <>
-    <p>Numero de ejercicios: {elementos.num1 + elementos.num2 + elementos.num3}</p>
+    <p>Numero de ejercicios: {elementos.partes[0].ejercicios + elementos.partes[1].ejercicios + elementos.partes[2].ejercicios}</p>
     </>
   );
 }
 
 function App() {
   const curso = 'Desarrollo de aplicaciones Half Stack';
-  const parte1 = 'Fundamentos de React';
-  const ejercicio1 = 10;
-  const parte2 = 'Usando props para el paso de datos';
-  const ejercicio2 = 7;
-  const parte3 = 'Estado de un componente';
-  const ejercicio3 = 14;
+  const parte = [
+    {
+      nombre: 'Fundamentos de React',
+      ejercicios: 10
+    },
+    {
+      nombre: 'Usando props para el paso de datos',
+      ejercicios: 7
+    },
+    {
+      nombre: 'Estado de un componente',
+      ejercicios: 14
+    }
+  ]
   return (
     <div>
       <Header nombreCurso = {curso}/>
-      <Content parte1 = {parte1} ejercicio1 = {ejercicio1} parte2 = {parte2} ejercicio2 = {ejercicio2} parte3 = {parte3} ejercicio3 = {ejercicio3}/>
-      <Total num1 = {ejercicio1} num2 = {ejercicio2} num3 = {ejercicio3}/>
+      <Content partes = {parte}/>
+      <Total partes = {parte}/>
     </div>
   )
 }
